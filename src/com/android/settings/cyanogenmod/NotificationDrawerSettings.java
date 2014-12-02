@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 package com.android.settings.cyanogenmod;
-
+ 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
@@ -22,58 +22,74 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
-
+ 
 import android.provider.SearchIndexableResource;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-
+ 
 import java.util.ArrayList;
 import java.util.List;
-
+ 
+import com.android.internal.widget.LockPatternUtils;
+ 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable,
         Preference.OnPreferenceChangeListener {
     private static final String QUICK_PULLDOWN = "quick_pulldown";
-
+    private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
+ 
     private ListPreference mQuickPulldown;
     private Preference mQSTiles;
-
+	SwitchPreference mBlockOnSecureKeyguard;
+ 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_drawer_settings);
-
+ 
         mQSTiles = findPreference("qs_order");
     }
-
+ 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+ 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
-
+ 
         mQuickPulldown.setOnPreferenceChangeListener(this);
         int quickPulldownValue = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_QUICK_PULLDOWN, 0, UserHandle.USER_CURRENT);
         mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
         updatePulldownSummary(quickPulldownValue);
+ 
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure()) {
+            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
+            mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(mBlockOnSecureKeyguard);
+        }
     }
-
+ 
     @Override
     public void onResume() {
         super.onResume();
-
+ 
         int qsTileCount = QSTiles.determineTileCount(getActivity());
         mQSTiles.setSummary(getResources().getQuantityString(R.plurals.qs_tiles_summary,
                     qsTileCount, qsTileCount));
     }
-
+ 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContentResolver();
@@ -83,13 +99,18 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     quickPulldownValue, UserHandle.USER_CURRENT);
             updatePulldownSummary(quickPulldownValue);
             return true;
+        } else if (preference == mBlockOnSecureKeyguard) {
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
         }
         return false;
     }
-
+ 
     private void updatePulldownSummary(int value) {
         Resources res = getResources();
-
+ 
         if (value == 0) {
             // quick pulldown deactivated
             mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
@@ -100,7 +121,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary, direction));
         }
     }
-
+ 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
@@ -108,14 +129,14 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                                                                             boolean enabled) {
                     ArrayList<SearchIndexableResource> result =
                             new ArrayList<SearchIndexableResource>();
-
+ 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.notification_drawer_settings;
                     result.add(sir);
-
+ 
                     return result;
                 }
-
+ 
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     return new ArrayList<String>();

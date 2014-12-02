@@ -277,6 +277,10 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
+	
+	<!--- Secure Lockscreen -->
+	<string name="block_on_secure_keyguard_title">Disable on Lockscreen</string>
+    <string name="block_on_secure_keyguard_summary">Disable Quick Settings on Secure Lockscreen.</string>
 
 </resources>
 
