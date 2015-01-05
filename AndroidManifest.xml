@@ -2310,5 +2310,9 @@
             </intent-filter>
         </activity>
 
+        <!-- Gesture anywhere -->
+        <activity android:name=".sokp.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".sokp.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
     </application>
 </manifest>

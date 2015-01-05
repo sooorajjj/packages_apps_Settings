@@ -45,6 +45,14 @@
                 android:fragment="com.android.settings.HomeSettings"
                 android:icon="@drawable/ic_settings_home"
                 /> 
+				
+	    <!-- Gesture anywhere -->
+        <PreferenceScreen
+                android:id="@+id/gesture_anywhere"
+                android:title="@string/gesture_anywhere_title"
+                android:fragment="com.android.settings.sokp.gestureanywhere.GestureAnywhereSettings"
+                android:icon="@drawable/ic_settings_gestures"
+                />
 		
         <!-- Status bar -->
         <PreferenceScreen
