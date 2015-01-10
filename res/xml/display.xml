@@ -119,6 +119,7 @@
     <PreferenceCategory
             android:key="interface"
             android:title="@string/category_interface">
+
         <!-- expanded desktop -->
         <PreferenceScreen
                 android:key="expanded_desktop"
