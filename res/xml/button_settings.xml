@@ -64,6 +64,11 @@
             android:dialogTitle="@string/navigation_bar_recents_title"
             android:title="@string/navigation_bar_recents_title"
             android:persistent="false" />
+			
+        <PreferenceScreen
+            android:key="navbar_dimensions"
+            android:fragment="com.android.settings.aicp.NavBarDimensions"
+            android:title="@string/navbar_style_dimen_title" />
 
     </PreferenceCategory>
 
