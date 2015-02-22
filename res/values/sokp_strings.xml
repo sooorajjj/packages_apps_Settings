@@ -27,6 +27,11 @@
     <!-- About phone screen, build date -->
     <string name="build_date">SOKP Build date</string>
     <string name="build_date_default" translatable="false">2014-01-01-0000</string>
+	
+	<!-- SOKP Legal -->
+    <string name="cmlicense_title">SONIC OPEN KANG PROJECT legal</string>
+    <string name="settings_cmlicense_activity_title">SONIC OPEN KANG PROJECT legal</string>
+    <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
 
 </resources>
 

@@ -278,9 +278,6 @@
     <string name="block_notifications_summary">Manage ignored notifications and filters</string>
     <string name="no_filters_title">No filters set</string>
 
-    <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod updates</string>
-
     <!-- Settings switch for updating Cyanogen recovery -->
     <string name="update_recovery_title">Update Cyanogen recovery</string>
     <string name="update_recovery_summary">Update recovery with system updates</string>
@@ -949,11 +946,6 @@
     <!-- EdgeGesture service -->
     <string name="edge_gesture_service_title">Block gesture touch events</string>
     <string name="edge_gesture_service_summary">Don\'t send touch events for navigation and status bar gestures to apps</string>
-
-    <!-- CM Legal -->
-    <string name="cmlicense_title">CyanogenMod legal</string>
-    <string name="settings_cmlicense_activity_title">CyanogenMod legal</string>
-    <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
 
     <!-- Screen security -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
