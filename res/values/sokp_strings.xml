@@ -19,9 +19,14 @@
     <!-- About device screen, CPU and RAM info. -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memory</string>
-	
-	<!-- Disable Fc Notifications -->
-    <string name="disable_fc_notifications_title">Diable FC Notifications</string>
-    <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
+
+	<!-- About phone screen, SOKP version -->
+    <string name="mod_version">SOKP version</string>
+    <string name="mod_version_default">Unknown</string>
+
+    <!-- About phone screen, build date -->
+    <string name="build_date">SOKP Build date</string>
+    <string name="build_date_default" translatable="false">2014-01-01-0000</string>
+
 </resources>
 
