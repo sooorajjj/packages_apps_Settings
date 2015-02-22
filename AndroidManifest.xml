@@ -2172,7 +2172,22 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                        android:resource="@id/lockscreen_settings" />
         </activity>
+		
+        <!-- SOKP Control -->
+        <activity android:name="Settings$SOKPControlActivity"
+            android:label="@string/sokp_control"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.sokp.SOKPControl" />
+        </activity>
 
+        <activity
+            android:name=".sokp.SOKPControl" />
+			
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"

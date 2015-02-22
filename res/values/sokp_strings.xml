@@ -32,6 +32,9 @@
     <string name="cmlicense_title">SONIC OPEN KANG PROJECT legal</string>
     <string name="settings_cmlicense_activity_title">SONIC OPEN KANG PROJECT legal</string>
     <string name="settings_cmlicense_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
+   
+    <!-- SOKP Control -->
+    <string name="sokp_control">SOKP Control</string>
 
 </resources>
 

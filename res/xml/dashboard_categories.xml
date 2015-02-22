@@ -106,28 +106,20 @@
         </dashboard-tile>
 
     </dashboard-category>
-
-    <!-- DEVICE -->
+	
+    <!-- Personalization -->
     <dashboard-category
-            android:id="@+id/device_section"
-            android:title="@string/header_category_device" >
-
-        <!-- Sound -->
-        <dashboard-tile
-                android:id="@+id/sound_settings"
-                android:title="@string/category_sounds"
-                android:fragment="com.android.settings.SoundSettings"
-                android:icon="@drawable/ic_settings_notifications"
-                />
-
-        <!-- Display & lights -->
-        <dashboard-tile
-                android:id="@+id/display_and_lights_settings"
-                android:title="@string/display_and_lights"
-                android:fragment="com.android.settings.DisplaySettings"
-                android:icon="@drawable/ic_settings_display"
-                />
-
+            android:id="@+id/personal_section"
+            android:title="@string/header_category_personal" >
+    			
+        <!-- SOKP Control -->
+		<dashboard-tile	
+		        android:id="@+id/sokp_control"
+                android:title="@string/sokp_control"
+                android:fragment="com.android.settings.sokp.SOKPControl"
+                android:icon="@drawable/ic_sokp_control"
+                /> 
+				
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile
@@ -139,32 +131,30 @@
                 <categories android:name="cyanogenmod.intent.category.APP_THEMES" />
             </intent>
         </dashboard-tile>
+        
+    </dashboard-category>
 
-        <!-- Notification manager -->
+    <!-- DEVICE -->
+    <dashboard-category
+            android:id="@+id/device_section"
+            android:title="@string/header_category_device" >
+			
+        <!-- Display & lights -->
         <dashboard-tile
-                android:id="@+id/notification_manager"
-                android:title="@string/notification_manager"
-                android:fragment="com.android.settings.notification.NotificationManagerSettings"
+                android:id="@+id/display_and_lights_settings"
+                android:title="@string/display_and_lights"
+                android:fragment="com.android.settings.DisplaySettings"
+                android:icon="@drawable/ic_settings_display"
+                />		
+
+		<!-- Sound -->
+        <dashboard-tile
+                android:id="@+id/sound_settings"
+                android:title="@string/category_sounds"
+                android:fragment="com.android.settings.SoundSettings"
                 android:icon="@drawable/ic_settings_notifications"
                 />
-
-        <!-- Lock screen -->
-        <dashboard-tile
-                android:id="@+id/lockscreen_settings"
-                android:title="@string/lockscreen_settings"
-                android:fragment="com.android.settings.lockscreen.LockScreenSettings"
-                android:icon="@drawable/ic_settings_security"
-                />
-
-        <!-- Buttons -->
-        <dashboard-tile
-                android:id="@+id/button_settings"
-                android:title="@string/button_pref_title"
-                android:fragment="com.android.settings.ButtonSettings"
-                android:icon="@drawable/ic_settings_buttons"
-                />
-
-        <!-- O-Click -->
+       	<!-- O-Click -->
         <dashboard-tile
                 android:id="@+id/oclick"
                 android:icon="@drawable/ic_settings_oclick">
@@ -173,8 +163,8 @@
                     android:targetPackage="com.cyanogenmod.settings.device"
                     android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
         </dashboard-tile>
-
-        <!-- Gestures -->
+			
+		<!-- Gestures -->
         <dashboard-tile
                 android:id="@+id/device_specific_gesture_settings"
                 android:title="@string/gesture_settings_title"
@@ -185,45 +175,6 @@
                     android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
         </dashboard-tile>
 
-        <!-- Battery -->
-        <dashboard-tile
-                android:id="@+id/battery_settings"
-                android:title="@string/power_usage_summary_title"
-                android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"
-                android:icon="@drawable/ic_settings_battery"
-                />
-
-        <!-- Security -->
-        <dashboard-tile
-                android:id="@+id/security_settings"
-                android:title="@string/security_settings_title"
-                android:fragment="com.android.settings.SecuritySettings"
-                android:icon="@drawable/ic_settings_security"
-                />
-
-        <!-- Manage users -->
-        <dashboard-tile
-                android:id="@+id/user_settings"
-                android:title="@string/user_settings_title"
-                android:fragment="com.android.settings.users.UserSettings"
-                android:icon="@drawable/ic_settings_multiuser"
-                />
-
-    </dashboard-category>
-
-    <!-- Personalization -->
-    <dashboard-category
-            android:id="@+id/personal_section"
-            android:title="@string/header_category_personal" >
-
-        <!-- Home -->
-        <dashboard-tile
-                android:id="@+id/home_settings"
-                android:title="@string/home_settings"
-                android:fragment="com.android.settings.HomeSettings"
-                android:icon="@drawable/ic_settings_home"
-                />
-
         <!-- Profiles -->
         <dashboard-tile
                 android:id="@+id/profile_settings"
@@ -231,25 +182,7 @@
                 android:title="@string/profiles_settings_title"
                 android:icon="@drawable/ic_settings_profiles"
                 />
-
-        <!-- Status bar -->
-        <dashboard-tile
-                android:id="@+id/status_bar_settings"
-                android:title="@string/status_bar_title"
-                android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-                android:icon="@drawable/ic_settings_extdesk_hidenavbar"
-                settings:advanced="true"
-                />
-
-        <!-- Notification drawer -->
-        <dashboard-tile
-                android:id="@+id/notification_drawer_settings"
-                android:title="@string/notification_drawer_title"
-                android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
-                android:icon="@drawable/ic_settings_notification_drawer"
-                settings:advanced="true"
-                />
-
+        
         <!-- Application Settings -->
         <dashboard-tile
                 android:id="@+id/application_settings"
@@ -258,6 +191,14 @@
                 android:icon="@drawable/ic_settings_applications"
                 />
 
+		<!-- Battery -->
+        <dashboard-tile
+                android:id="@+id/battery_settings"
+                android:title="@string/power_usage_summary_title"
+                android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"
+                android:icon="@drawable/ic_settings_battery"
+                />		
+				
         <!-- Account -->
         <dashboard-tile
                 android:id="@+id/account_settings"
@@ -265,7 +206,15 @@
                 android:fragment="com.android.settings.accounts.AccountSettings"
                 android:icon="@drawable/ic_settings_accounts"
                 />
-
+		
+        <!-- Security -->
+        <dashboard-tile
+                android:id="@+id/security_settings"
+                android:title="@string/security_settings_title"
+                android:fragment="com.android.settings.SecuritySettings"
+                android:icon="@drawable/ic_settings_security"
+                />		
+				
         <!-- CyanogenMod Privacy Settings -->
         <!-- This is the 'real' Privacy items and includes Privacy Guard, Blacklist & WhisperPush -->
         <dashboard-tile
