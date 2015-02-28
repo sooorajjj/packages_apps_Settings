@@ -65,6 +65,7 @@
 	<!-- Navigation bar -->
     <string name="navbar_style_dimen_title">Navbar dimensions</string>
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
+    <string name="reset">Reset</string>
     <string name="navigation_bar_height_title">Navigation bar height</string>
     <string name="navigation_bar_height_summary">Navigation bar height while in portrait</string>
     <string name="navigation_bar_width_title">Navigation bar width</string>
