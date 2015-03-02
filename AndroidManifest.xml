@@ -1910,6 +1910,20 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity>
 
+        <!-- Ambient display settings activity. -->
+        <activity android:name="Settings$AmbientDisplaySettingsActivity"
+                android:label="@string/doze_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.sokp.ambientdisplay.AmbientSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
@@ -2272,7 +2286,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                        android:resource="@id/lockscreen_settings" />
         </activity>
-		
+
         <!-- SOKP Control -->
         <activity android:name="Settings$SOKPControlActivity"
             android:label="@string/sokp_control"
@@ -2287,7 +2301,7 @@
 
         <activity
             android:name=".sokp.SOKPControl" />
-			
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
