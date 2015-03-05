@@ -145,6 +145,9 @@
     <string name="qs_screen_off_tile">Screen Off</string>
     <string name="qs_screenshot_tile">ScreenShot</string>
     <string name="qs_sync_tile">Sync</string>
+	<string name="qs_tile_reboot">Reboot</string>
+	<string name="colors_title">Colors</string>
+    <string name="category_colors_title">Customize colors</string>
 	
 	 <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">Long press lock icon to sleep</string>
