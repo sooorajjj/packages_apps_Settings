@@ -92,6 +92,8 @@
 	<!-- Battery saver -->
     <string name="battery_saver_title">Warning color</string>
     <string name="battery_saver_style_reset_message">Reset battery saver warning color?</string>
+	<string name="default_string">Default</string>
+
 	
 	<!--- Secure Lockscreen -->
 	<string name="block_on_secure_keyguard_title">Disable on Lockscreen</string>
