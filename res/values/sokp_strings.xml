@@ -155,6 +155,9 @@
     <string name="qs_screen_off_tile">Screen Off</string>
     <string name="qs_screenshot_tile">ScreenShot</string>
     <string name="qs_sync_tile">Sync</string>
+	<string name="qs_tile_reboot">Reboot</string>
+	<string name="colors_title">Colors</string>
+    <string name="category_colors_title">Customize colors</string>
 	
 	<!-- Doze pulse (ambient display) options -->
     <string name="doze_overwrite_value_title">Overwrite value</string>
