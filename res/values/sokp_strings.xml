@@ -97,5 +97,16 @@
 	<string name="block_on_secure_keyguard_title">Disable on Lockscreen</string>
     <string name="block_on_secure_keyguard_summary">Disable Quick Settings on Secure Lockscreen.</string>
 	
+	<!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="help">Help</string>
+    <string name="add">Add</string>
+    <string name="attention">Attention</string>
+    <string name="enabled">Enabled</string>
+    <string name="default_string">Default</string>
+    <string name="choose_app">Choose application</string>
+    <string name="reset_message">Reset all entries to default?</string>
+		
 </resources>
 
