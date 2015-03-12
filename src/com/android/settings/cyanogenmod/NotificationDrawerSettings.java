@@ -46,7 +46,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
  
     private ListPreference mQuickPulldown;
     private Preference mQSTiles;
- 
+    private SwitchPreference mBlockOnSecureKeyguard;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
