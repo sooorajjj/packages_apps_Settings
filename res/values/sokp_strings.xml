@@ -35,6 +35,9 @@
    
     <!-- SOKP Control -->
     <string name="sokp_control">SOKP Control</string>
+	
+	<!-- SOKP Statistics -->
+	<string name="sokp_stats">SOKP Statistics</string>	
 
 </resources>
 

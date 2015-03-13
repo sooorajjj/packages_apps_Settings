@@ -19,7 +19,20 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/sokp_control" >
 
-	    <!-- Home -->
+	   <!-- SOKP Stats -->
+		<PreferenceScreen
+               android:id="@+id/sokp_stats"
+               android:title="@string/sokp_stats"
+			   android:icon="@drawable/ic_settings_about">
+
+        <intent
+               android:action="android.intent.action.MAIN"
+               android:targetPackage="android.romstats"
+               android:targetClass="android.romstats.AnonymousStats" />
+       </PreferenceScreen>
+
+
+	   <!-- Home -->
         <PreferenceScreen
                 android:id="@+id/home_settings"
                 android:title="@string/home_settings"
