@@ -249,7 +249,7 @@ public class SettingsActivity extends Activity
             R.id.home_settings,
             R.id.status_bar_settings,
             R.id.dashboard,
-			R.id.sokp_control
+			R.id.sokp_control,
             R.id.privacy_settings_cyanogenmod,
     };
 
