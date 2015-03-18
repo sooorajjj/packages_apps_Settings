@@ -141,40 +141,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         PreferenceCategory interfacePrefs = (PreferenceCategory)
                 findPreference(KEY_CATEGORY_INTERFACE);
 
-<<<<<<< HEAD
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
         mAccelerometer = (SwitchPreference) findPreference(DisplayRotation.KEY_ACCELEROMETER);
         if (mAccelerometer != null) {
             mAccelerometer.setPersistent(false);
-=======
-
-        if (isAutomaticBrightnessAvailable(getResources())) {
-            mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
-            mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_AUTO_BRIGHTNESS);
-        }
-
-        if (!DisplayColor.isSupported()) {
-            removePreference(KEY_DISPLAY_COLOR);
-        }
-
-        if (!DisplayGamma.isSupported()) {
-            removePreference(KEY_DISPLAY_GAMMA);
-        }
-
-        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
-        if (!isDozeAvailable(activity)) {
-            generalPrefs.removePreference(mDozeFragement);
-            mDozeFragement = null;
-        }
-
-        if (isLiftToWakeAvailable(activity)) {
-            mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
-            mLiftToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            generalPrefs.removePreference(findPreference(KEY_LIFT_TO_WAKE));
->>>>>>> beee93b... [2/2] Settings: Ambient Display configurations
         }
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
@@ -217,13 +187,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
-        if (mDozePreference != null && isDozeAvailable(activity)) {
-            mDozePreference.setOnPreferenceChangeListener(this);
-        } else {
-            if (displayPrefs != null && mDozePreference != null) {
-                displayPrefs.removePreference(mDozePreference);
-            }
+        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
+        if (displayPrefs != null && mDozeFragement != null && !isDozeAvailable(activity)) {
+            displayPrefs.removePreference(mDozeFragement);
         }
 
         mTapToWake = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
@@ -465,15 +431,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             int value = Settings.Secure.getInt(getContentResolver(), WAKE_GESTURE_ENABLED, 0);
             mLiftToWakePreference.setChecked(value != 0);
         }
-<<<<<<< HEAD
-
-        // Update doze if it is available.
-        if (mDozePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOZE_ENABLED, 1);
-            mDozePreference.setChecked(value != 0);
-        }
-=======
->>>>>>> beee93b... [2/2] Settings: Ambient Display configurations
     }
 
     private void updateScreenSaverSummary() {
