@@ -322,7 +322,7 @@ public class SettingsActivity extends Activity
             NotificationManagerSettings.class.getName(),
 			com.android.settings.sokp.SOKPControl.class.getName(),
             LockScreenSettings.class.getName(),
-            LiveDisplay.class.getName()
+            LiveDisplay.class.getName(),
             ProfilesSettings.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
             AmbientSettings.class.getName()
