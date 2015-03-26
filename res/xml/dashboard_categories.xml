@@ -154,7 +154,6 @@
                 android:fragment="com.android.settings.SoundSettings"
                 android:icon="@drawable/ic_settings_notifications"
                 />
-				
        	<!-- O-Click -->
         <dashboard-tile
                 android:id="@+id/oclick"
@@ -176,7 +175,6 @@
                     android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
         </dashboard-tile>
 
-		
         <!-- Profiles -->
         <dashboard-tile
                 android:id="@+id/profile_settings"

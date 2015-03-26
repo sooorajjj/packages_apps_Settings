@@ -27,7 +27,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.hardware.CmHardwareManager;
 import android.os.Bundle;
-import com.android.settings.R;
 import android.os.RemoteException;
 import android.os.Handler;
 import android.preference.ListPreference;
@@ -49,7 +48,6 @@ import android.view.WindowManagerGlobal;
 import com.android.internal.util.cm.ScreenType;
 
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
-import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -141,12 +139,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private Handler mHandler;
 
-	@Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.button_settings);
-    }
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
