@@ -56,31 +56,31 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.gesture_anywhere);
 
         mEnabledPref = (SwitchPreference) findPreference(KEY_ENABLED);
-        mEnabledPref.setChecked((Settings.SOKP.getInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_ENABLED, 0) == 1));
+        mEnabledPref.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_ENABLED, 0) == 1));
         mEnabledPref.setOnPreferenceChangeListener(this);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         mPositionPref = (ListPreference) prefSet.findPreference(KEY_POSITION);
         mPositionPref.setOnPreferenceChangeListener(this);
-        int position = Settings.SOKP.getInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_POSITION, Gravity.LEFT);
+        int position = Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_POSITION, Gravity.LEFT);
         mPositionPref.setValue(String.valueOf(position));
         updatePositionSummary(position);
 
         mTriggerWidthPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_WIDTH);
-        mTriggerWidthPref.setValue(Settings.SOKP.getInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_WIDTH, 10));
+        mTriggerWidthPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, 10));
         mTriggerWidthPref.setOnPreferenceChangeListener(this);
 
         mTriggerTopPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_TOP);
-        mTriggerTopPref.setValue(Settings.SOKP.getInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_TOP, 0));
+        mTriggerTopPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, 0));
         mTriggerTopPref.setOnPreferenceChangeListener(this);
 
         mTriggerBottomPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_BOTTOM);
-        mTriggerBottomPref.setValue(Settings.SOKP.getInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_HEIGHT, 100));
+        mTriggerBottomPref.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, 100));
         mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
         Preference pref = findPreference(KEY_GESTURES);
@@ -113,24 +113,24 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
             updatePositionSummary(position);
             return true;
         } else if (preference == mEnabledPref) {
-            Settings.SOKP.putInt(getContentResolver(),
-                    Settings.SOKP.GESTURE_ANYWHERE_ENABLED,
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_ENABLED,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
         } else if (preference == mTriggerWidthPref) {
             int width = ((Integer)newValue).intValue();
-            Settings.SOKP.putInt(getContentResolver(),
-                    Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_WIDTH, width);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_WIDTH, width);
             return true;
         } else if (preference == mTriggerTopPref) {
             int top = ((Integer)newValue).intValue();
-            Settings.SOKP.putInt(getContentResolver(),
-                    Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_TOP, top);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_TOP, top);
             return true;
         } else if (preference == mTriggerBottomPref) {
             int bottom = ((Integer)newValue).intValue();
-            Settings.SOKP.putInt(getContentResolver(),
-                    Settings.SOKP.GESTURE_ANYWHERE_TRIGGER_HEIGHT, bottom);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_TRIGGER_HEIGHT, bottom);
             return true;
         }
         return false;
@@ -144,21 +144,21 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
 
     private void updatePositionSummary(int value) {
         mPositionPref.setSummary(mPositionPref.getEntries()[mPositionPref.findIndexOfValue("" + value)]);
-        Settings.SOKP.putInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_POSITION, value);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_POSITION, value);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Settings.SOKP.putInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_SHOW_TRIGGER, 0);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_SHOW_TRIGGER, 0);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Settings.SOKP.putInt(getContentResolver(),
-                Settings.SOKP.GESTURE_ANYWHERE_SHOW_TRIGGER, 1);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.GESTURE_ANYWHERE_SHOW_TRIGGER, 1);
     }
 }

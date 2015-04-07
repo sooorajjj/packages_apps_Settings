@@ -138,8 +138,8 @@ public class GestureAnywhereBuilderActivity extends ListActivity
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_NEW_GESTURE:
-                    Settings.SOKP.putLong(getContentResolver(),
-                            Settings.SOKP.GESTURE_ANYWHERE_CHANGED,
+                    Settings.System.putLong(getContentResolver(),
+                            Settings.System.GESTURE_ANYWHERE_CHANGED,
                             System.currentTimeMillis());
                     loadGestures();
                     break;
