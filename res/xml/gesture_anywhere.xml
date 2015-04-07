@@ -53,7 +53,7 @@
         settings:unitsRight="px"
         android:dependency="gesture_anywhere_enabled" />
 
-    <com.android.settings.pac.utils.SeekBarPreferenceCham
+    <com.android.settings.sokp.utils.SeekBarPreferenceCham
         android:key="gesture_anywhere_trigger_top"
         android:title="@string/trigger_top_title"
         android:summary="@string/trigger_top_summary"
@@ -64,7 +64,7 @@
         settings:unitsRight="%"
         android:dependency="gesture_anywhere_enabled" />
 
-    <com.android.settings.pac.utils.SeekBarPreferenceCham
+    <com.android.settings.sokp.utils.SeekBarPreferenceCham
         android:key="gesture_anywhere_trigger_bottom"
         android:title="@string/trigger_bottom_title"
         android:summary="@string/trigger_bottom_summary"
