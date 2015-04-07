@@ -42,7 +42,7 @@
     <PreferenceCategory
         android:title="@string/trigger_category" />
 
-    <com.android.settings.pac.utils.SeekBarPreferenceCham
+    <com.android.settings.sokp.utils.SeekBarPreferenceCham
         android:key="gesture_anywhere_trigger_width"
         android:title="@string/trigger_width_title"
         android:summary="@string/trigger_width_summary"
