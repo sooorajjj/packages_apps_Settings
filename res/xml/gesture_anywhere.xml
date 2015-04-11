@@ -53,7 +53,7 @@
         settings:unitsRight="px"
         android:dependency="gesture_anywhere_enabled" />
 
-    <com.android.settings.sokp.anywhere_trigger_top"
+    <com.android.settings.sokp.anywhere_trigger_top
         android:title="@string/trigger_top_title"
         android:summary="@string/trigger_top_summary"
         android:defaultValue="0"
