@@ -27,7 +27,7 @@
     <CheckBoxPreference
         android:key="screenshot"
         android:title="@string/power_menu_screenshot_title"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <CheckBoxPreference
         android:key="profile"
@@ -62,7 +62,7 @@
     <CheckBoxPreference
         android:key="silent"
         android:title="@string/power_menu_sound_title"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
          android:key="lockscreen_enable_power_menu"
